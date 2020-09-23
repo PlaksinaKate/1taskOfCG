@@ -18,8 +18,6 @@ public class Home implements Drawable {
         gr.setPaint(new GradientPaint(smallPartOfTheHouseX1 - 10, smallPartOfTheHouseY1 - 210, roof1, smallPartOfTheHouseX2 + 310, smallPartOfTheHouseY1 + 90, roof2));
         gr.fillPolygon(new int[]{smallPartOfTheHouseX1 - 10, smallPartOfTheHouseX1 + 20, smallPartOfTheHouseX2 + 220, smallPartOfTheHouseX2 + 310}, new int[]{smallPartOfTheHouseY1, smallPartOfTheHouseY1 / 2 - 50, smallPartOfTheHouseY1 / 2 - 50, smallPartOfTheHouseY1}, 4);
 
-        gr.setColor(new Color(91, 83, 83));
-        gr.fillPolygon(new int[]{smallPartOfTheHouseX1 - 10, smallPartOfTheHouseX2 + 10, smallPartOfTheHouseX2 + 110, smallPartOfTheHouseX1 - 110}, new int[]{smallPartOfTheHouseY2 + 5, smallPartOfTheHouseY2 + 5, smallPartOfTheHouseY2 + 300, smallPartOfTheHouseY2 + 300}, 4);
 
 
         gr.setColor(darkPartOfTheHouse);
@@ -51,11 +49,6 @@ public class Home implements Drawable {
         gr.drawPolygon(new int[]{bigPartOgTheHouseX1 + 20, middleOfABigPartOfTheHouse - 30, middleOfABigPartOfTheHouse - 30, bigPartOgTheHouseX1 + 20}, new int[]{bigPartOgTheHouseY1, bigPartOgTheHouseY1, bigPartOgTheHouseY2 - 50, bigPartOgTheHouseY2 - 50}, 4);
         gr.drawPolygon(new int[]{middleOfABigPartOfTheHouse - 30, bigPartOgTheHouseX2 - 20, bigPartOgTheHouseX2 - 20, middleOfABigPartOfTheHouse - 30}, new int[]{bigPartOgTheHouseY1, bigPartOgTheHouseY1, bigPartOgTheHouseY2 - 50, bigPartOgTheHouseY2 - 50}, 4);
 
-        // камни
-        gr.setColor(new Color(91, 83, 83));
-        gr.fillPolygon(new int[]{bigPartOgTheHouseX1, bigPartOgTheHouseX1 + 20, bigPartOgTheHouseX2 - 20, bigPartOgTheHouseX2}, new int[]{bigPartOgTheHouseY2, bigPartOgTheHouseY2 - 48, bigPartOgTheHouseY2 - 48, bigPartOgTheHouseY2}, 4);
-        gr.fillPolygon(new int[]{bigPartOgTheHouseX1, bigPartOgTheHouseX2, bigPartOgTheHouseX2 + 100, bigPartOgTheHouseX1 - 100}, new int[]{bigPartOgTheHouseY2 + 5, bigPartOgTheHouseY2 + 5, bigPartOgTheHouseY2 + 250, bigPartOgTheHouseY2 + 250}, 4);
-        gr.fillPolygon(new int[]{smallPartOfTheHouseX1 - 10, smallPartOfTheHouseX2 + 10, smallPartOfTheHouseX2 - 24, smallPartOfTheHouseX1 + 24}, new int[]{smallPartOfTheHouseY2, smallPartOfTheHouseY2, smallPartOfTheHouseY2 - 39, smallPartOfTheHouseY2 - 39}, 4);
 
     }
 
