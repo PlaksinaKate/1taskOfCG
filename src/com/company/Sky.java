@@ -14,7 +14,7 @@ public class Sky implements Drawable {
     }
 
     public static void sky(Graphics2D gr, int x, int y, int width, int height, Color c1, Color c2) {
-        //sky
+        //небо
         GradientPaint grad = new GradientPaint(x, y, c1, width, height, c2);
         gr.setPaint(grad);
         gr.fillRect(x, y, width, height);

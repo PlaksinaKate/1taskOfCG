@@ -12,11 +12,13 @@ public class Ground implements Drawable {
         lawn(gr, width, height, lawn);
     }
 
+    //земля
     public static void ground(Graphics2D gr, int x, int y, int width, int height, Color ground) {
         gr.setColor(ground);
         gr.fillRect(x, y, width, height);
     }
 
+    //травинки
     public static void lawn(Graphics2D gr, int width, int height, Color lawn) {
         gr.setColor(lawn);
         gr.setStroke(new BasicStroke(1.0f));
