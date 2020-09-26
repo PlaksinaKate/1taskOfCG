@@ -20,26 +20,30 @@ public class Home implements Drawable {
         gr.fillPolygon(new int[]{smallPartOfTheHouseX1 - 10, smallPartOfTheHouseX1 + 20, smallPartOfTheHouseX2 + 220, smallPartOfTheHouseX2 + 310}, new int[]{smallPartOfTheHouseY1, smallPartOfTheHouseY1 / 2 - 50, smallPartOfTheHouseY1 / 2 - 50, smallPartOfTheHouseY1}, 4);
 
 
-//темные стены дома
+        //темные стены дома
         gr.setColor(darkPartOfTheHouse);
         gr.fillPolygon(new int[]{bigPartOgTheHouseX1 - 10, bigPartOgTheHouseX1 - 10, middleOfABigPartOfTheHouse, bigPartOgTheHouseX2 + 10, bigPartOgTheHouseX2 + 10}, new int[]{bigPartOgTheHouseY2, bigPartOgTheHouseY1, bigPartOgTheHouseY1 - 250, bigPartOgTheHouseY1, bigPartOgTheHouseY2}, 5);
         gr.fillPolygon(new int[]{smallPartOfTheHouseX1 - 10, smallPartOfTheHouseX1 - 10, middleOfASmallPartOfTheHouse, smallPartOfTheHouseX2 + 10, smallPartOfTheHouseX2 + 10}, new int[]{smallPartOfTheHouseY2, smallPartOfTheHouseY1, smallPartOfTheHouseY1 - 210, smallPartOfTheHouseY1, smallPartOfTheHouseY2}, 5);
 
-//светлые стены
+        //светлые стены
         gr.setColor(brightWall);
         gr.fillPolygon(new int[]{bigPartOgTheHouseX1, bigPartOgTheHouseX1, middleOfABigPartOfTheHouse, bigPartOgTheHouseX2, bigPartOgTheHouseX2}, new int[]{bigPartOgTheHouseY2, bigPartOgTheHouseY1, bigPartOgTheHouseY1 - 240, bigPartOgTheHouseY1, bigPartOgTheHouseY2}, 5);
         gr.fillPolygon(new int[]{smallPartOfTheHouseX1, smallPartOfTheHouseX1, middleOfASmallPartOfTheHouse, smallPartOfTheHouseX2, smallPartOfTheHouseX2}, new int[]{smallPartOfTheHouseY2, smallPartOfTheHouseY1, smallPartOfTheHouseY1 - 200, smallPartOfTheHouseY1, smallPartOfTheHouseY2}, 5);
-//темная часть маленькой част дома
+        //темная часть маленькой часть дома
         gr.setColor(darkPartOfTheHouse);
         gr.fillPolygon(new int[]{smallPartOfTheHouseX1 + 20, middleOfASmallPartOfTheHouse, smallPartOfTheHouseX2 - 20}, new int[]{smallPartOfTheHouseY1, smallPartOfTheHouseY1 / 2 - 30, smallPartOfTheHouseY1}, 3);
 
+        //текст
+        gr.setColor(Color.WHITE);
+        gr.setFont(new Font("Montserrat", Font.PLAIN, 13));
+        gr.drawString("ФКН 2 курс", smallPartOfTheHouseX1 + 50, smallPartOfTheHouseY1 - 10);
 
         // внутренний свет
         gr.setColor(innerLight);
         gr.fillRect(smallPartOfTheHouseX1 + 24, smallPartOfTheHouseY1 - 1, smallPartOfTheHouseX1 - 68, smallPartOfTheHouseY1 + 61);
         gr.fillPolygon(new int[]{bigPartOgTheHouseX1 + 20, middleOfABigPartOfTheHouse, bigPartOgTheHouseX2 - 20, bigPartOgTheHouseX2 - 20, bigPartOgTheHouseX1 + 20}, new int[]{bigPartOgTheHouseY1, bigPartOgTheHouseY1 - 222, bigPartOgTheHouseY1, bigPartOgTheHouseY2 - 50, bigPartOgTheHouseY2 - 50}, 5);
 
-
+        //рамки окон
         gr.setColor(darkPartOfTheHouse);
         gr.setStroke(new BasicStroke(4));
         gr.drawPolygon(new int[]{smallPartOfTheHouseX1 + 24, middleOfASmallPartOfTheHouse - 20, middleOfASmallPartOfTheHouse - 20, smallPartOfTheHouseX1 + 24}, new int[]{smallPartOfTheHouseY1 - 1, smallPartOfTheHouseY1 - 1, smallPartOfTheHouseY2 - 40, smallPartOfTheHouseY2 - 40}, 4);
@@ -52,6 +56,7 @@ public class Home implements Drawable {
 
 
     }
+
 
     public Home(int smallPartOfTheHouseX1, int smallPartOfTheHouseX2, int smallPartOfTheHouseY1, int smallPartOfTheHouseY2, int bigPartOgTheHouseX1, int bigPartOgTheHouseX2, int bigPartOgTheHouseY1, int bigPartOgTheHouseY2, Color roof1, Color roof2, Color darkPartOfTheHouse, Color brightWall, Color innerLight) {
         this.smallPartOfTheHouseX1 = smallPartOfTheHouseX1;

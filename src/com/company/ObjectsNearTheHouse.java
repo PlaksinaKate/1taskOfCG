@@ -26,10 +26,11 @@ public class ObjectsNearTheHouse implements Drawable {
     public static void swimmingPool(Graphics2D gr, int smallPartOfTheHouseX2, int smallPartOfTheHouseY2, int bigPartOgTheHouseX1, Color nearSwimmingPool, Color swimmingPool) {
         //тень бассейна
         gr.setColor(nearSwimmingPool);
-        gr.fillOval(bigPartOgTheHouseX1 - 10, smallPartOfTheHouseY2 + 95, smallPartOfTheHouseX2 * 3 / 4 + 20, smallPartOfTheHouseX2 * 3 / 4 + 10);
+        gr.fillArc(bigPartOgTheHouseX1 - 10, smallPartOfTheHouseY2 + 105, smallPartOfTheHouseX2 * 3 / 4 + 5, smallPartOfTheHouseX2 * 3 / 8 + 5, 0, 180);
+
         //бассейн
         gr.setColor(swimmingPool);
-        gr.fillOval(bigPartOgTheHouseX1, smallPartOfTheHouseY2 + 100, smallPartOfTheHouseX2 * 3 / 4, smallPartOfTheHouseX2 * 3 / 4);
+        gr.fillArc(bigPartOgTheHouseX1, smallPartOfTheHouseY2 + 110, smallPartOfTheHouseX2 * 3 / 4 - 10, smallPartOfTheHouseX2 * 3 / 8, 0, 180);
 
     }
 
