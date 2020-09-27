@@ -16,6 +16,7 @@ public class Ground implements Drawable {
     public static void ground(Graphics2D gr, int x, int y, int width, int height, Color ground) {
         gr.setColor(ground);
         gr.fillRect(x, y, width, height);
+        //gr.setPaint(new TexturePaint());
     }
 
     //травинки

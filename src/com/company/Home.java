@@ -3,75 +3,87 @@ package com.company;
 import java.awt.*;
 
 public class Home implements Drawable {
-    private int smallPartOfTheHouseX1, smallPartOfTheHouseX2, smallPartOfTheHouseY1, smallPartOfTheHouseY2, bigPartOgTheHouseX1, bigPartOgTheHouseX2, bigPartOgTheHouseY1, bigPartOgTheHouseY2;
+    private int houseX, houseY, houseX2, houseY2;
     private Color roof1, roof2, darkPartOfTheHouse, brightWall, innerLight;
 
     @Override
     public void draw(Graphics2D gr) {
-        home(gr, smallPartOfTheHouseX1, smallPartOfTheHouseX2, smallPartOfTheHouseY1, smallPartOfTheHouseY2, bigPartOgTheHouseX1, bigPartOgTheHouseX2, bigPartOgTheHouseY1, bigPartOgTheHouseY2, roof1, roof2, darkPartOfTheHouse, brightWall, innerLight);
+        roof(gr, houseX, houseY, roof1, roof2);
+        darkPartOfTheHouse1(gr, houseX, houseY, houseX2, houseY2, darkPartOfTheHouse);
+        brightWall(gr, houseX, houseY, houseX2, houseY2, brightWall);
+        darkPartOfTheHouse2(gr, houseX, houseY, houseX2, darkPartOfTheHouse);
+        text(gr, houseX, houseY);
+        innerLight(gr, houseX, houseY, houseX2, houseY2, innerLight);
+        windowFrames(gr, houseX, houseY, houseX2, houseY2, darkPartOfTheHouse);
+
     }
 
-    public static void home(Graphics2D gr, int smallPartOfTheHouseX1, int smallPartOfTheHouseX2, int smallPartOfTheHouseY1, int smallPartOfTheHouseY2, int bigPartOgTheHouseX1, int bigPartOgTheHouseX2, int bigPartOgTheHouseY1, int bigPartOgTheHouseY2, Color roof1, Color roof2, Color darkPartOfTheHouse, Color brightWall, Color innerLight) {
-        int middleOfASmallPartOfTheHouse = (smallPartOfTheHouseX2 - smallPartOfTheHouseX1) / 2 + smallPartOfTheHouseX1; //середина маленькой части дома
-        int middleOfABigPartOfTheHouse = (bigPartOgTheHouseX2 - bigPartOgTheHouseX1) / 2 + bigPartOgTheHouseX1; //середина большой части дома
+    public static void roof(Graphics2D gr, int houseX, int houseY, Color roof1, Color roof2) {
 
-        //крыша дома
-        gr.setPaint(new GradientPaint(smallPartOfTheHouseX1 - 10, smallPartOfTheHouseY1 - 210, roof1, smallPartOfTheHouseX2 + 310, smallPartOfTheHouseY1 + 90, roof2));
-        gr.fillPolygon(new int[]{smallPartOfTheHouseX1 - 10, smallPartOfTheHouseX1 + 20, smallPartOfTheHouseX2 + 220, smallPartOfTheHouseX2 + 310}, new int[]{smallPartOfTheHouseY1, smallPartOfTheHouseY1 / 2 - 50, smallPartOfTheHouseY1 / 2 - 50, smallPartOfTheHouseY1}, 4);
+        gr.setPaint(new GradientPaint(houseX - 10, houseY - 210, roof1, houseX + 690, houseY + 90, roof2));
+        gr.fillPolygon(new int[]{houseX - 10, houseX + 20, houseX + 600, houseX + 690}, new int[]{houseY, houseY / 2 - 50, houseY / 2 - 50, houseY}, 4);
+    }
 
-
-        //темные стены дома
+    public static void darkPartOfTheHouse1(Graphics2D gr, int houseX, int houseY, int houseX2, int houseY2, Color darkPartOfTheHouse) {
         gr.setColor(darkPartOfTheHouse);
-        gr.fillPolygon(new int[]{bigPartOgTheHouseX1 - 10, bigPartOgTheHouseX1 - 10, middleOfABigPartOfTheHouse, bigPartOgTheHouseX2 + 10, bigPartOgTheHouseX2 + 10}, new int[]{bigPartOgTheHouseY2, bigPartOgTheHouseY1, bigPartOgTheHouseY1 - 250, bigPartOgTheHouseY1, bigPartOgTheHouseY2}, 5);
-        gr.fillPolygon(new int[]{smallPartOfTheHouseX1 - 10, smallPartOfTheHouseX1 - 10, middleOfASmallPartOfTheHouse, smallPartOfTheHouseX2 + 10, smallPartOfTheHouseX2 + 10}, new int[]{smallPartOfTheHouseY2, smallPartOfTheHouseY1, smallPartOfTheHouseY1 - 210, smallPartOfTheHouseY1, smallPartOfTheHouseY2}, 5);
+        gr.fillPolygon(new int[]{houseX + 390, houseX + 390, (houseX2 - houseX) * 3 / 4 + houseX - 20, houseX2 + 10, houseX2 + 10}, new int[]{houseY2, houseY - 50, houseY - 300, houseY - 50, houseY2}, 5);
+        gr.fillPolygon(new int[]{houseX - 10, houseX - 10, (houseX2 - houseX) / 4 + houseX - 20, houseX + 390, houseX + 390}, new int[]{houseY2 - 50, houseY, houseY - 210, houseY, houseY2 - 50}, 5);
 
-        //светлые стены
+    }
+
+    public static void brightWall(Graphics2D gr, int houseX, int houseY, int houseX2, int houseY2, Color brightWall) {
         gr.setColor(brightWall);
-        gr.fillPolygon(new int[]{bigPartOgTheHouseX1, bigPartOgTheHouseX1, middleOfABigPartOfTheHouse, bigPartOgTheHouseX2, bigPartOgTheHouseX2}, new int[]{bigPartOgTheHouseY2, bigPartOgTheHouseY1, bigPartOgTheHouseY1 - 240, bigPartOgTheHouseY1, bigPartOgTheHouseY2}, 5);
-        gr.fillPolygon(new int[]{smallPartOfTheHouseX1, smallPartOfTheHouseX1, middleOfASmallPartOfTheHouse, smallPartOfTheHouseX2, smallPartOfTheHouseX2}, new int[]{smallPartOfTheHouseY2, smallPartOfTheHouseY1, smallPartOfTheHouseY1 - 200, smallPartOfTheHouseY1, smallPartOfTheHouseY2}, 5);
-        //темная часть маленькой часть дома
+        gr.fillPolygon(new int[]{houseX + 400, houseX + 400, (houseX2 - houseX) * 3 / 4 + houseX - 20, houseX2, houseX2}, new int[]{houseY2, houseY - 50, houseY - 290, houseY - 50, houseY2}, 5);
+        gr.fillPolygon(new int[]{houseX, houseX, (houseX2 - houseX) / 4 + houseX - 20, houseX + 380, houseX + 380}, new int[]{houseY + 400, houseY, houseY - 200, houseY, houseY + 400}, 5);
+
+    }
+
+    public static void darkPartOfTheHouse2(Graphics2D gr, int houseX, int houseY, int houseX2, Color darkPartOfTheHouse) {
         gr.setColor(darkPartOfTheHouse);
-        gr.fillPolygon(new int[]{smallPartOfTheHouseX1 + 20, middleOfASmallPartOfTheHouse, smallPartOfTheHouseX2 - 20}, new int[]{smallPartOfTheHouseY1, smallPartOfTheHouseY1 / 2 - 30, smallPartOfTheHouseY1}, 3);
+        gr.fillPolygon(new int[]{houseX + 20, (houseX2 - houseX) / 4 + houseX - 20, houseX + 360}, new int[]{houseY, houseY / 2 - 30, houseY}, 3);
 
-        //текст
+    }
+
+    public static void text(Graphics2D gr, int houseX, int houseY) {
         gr.setColor(Color.WHITE);
-        gr.setFont(new Font("Montserrat", Font.PLAIN, 13));
-        gr.drawString("ФКН 2 курс", smallPartOfTheHouseX1 + 50, smallPartOfTheHouseY1 - 10);
+        gr.drawString("Золотая молодеж ФКН", houseX + 50, houseY - 10);
 
-        // внутренний свет
+    }
+
+    public static void innerLight(Graphics2D gr, int houseX, int houseY, int houseX2, int houseY2, Color innerLight) {
         gr.setColor(innerLight);
-        gr.fillRect(smallPartOfTheHouseX1 + 24, smallPartOfTheHouseY1 - 1, smallPartOfTheHouseX1 - 68, smallPartOfTheHouseY1 + 61);
-        gr.fillPolygon(new int[]{bigPartOgTheHouseX1 + 20, middleOfABigPartOfTheHouse, bigPartOgTheHouseX2 - 20, bigPartOgTheHouseX2 - 20, bigPartOgTheHouseX1 + 20}, new int[]{bigPartOgTheHouseY1, bigPartOgTheHouseY1 - 222, bigPartOgTheHouseY1, bigPartOgTheHouseY2 - 50, bigPartOgTheHouseY2 - 50}, 5);
+        gr.fillRect(houseX + 24, houseY - 1, houseX - 68, houseY + 61);
+        gr.fillPolygon(new int[]{houseX + 420, (houseX2 - houseX) * 3 / 4 + houseX - 20, houseX2 - 20, houseX2 - 20, houseX + 420}, new int[]{houseY - 50, houseY - 270, houseY - 50, houseY2 - 50, houseY2 - 50}, 5);
 
-        //рамки окон
+
+    }
+
+    public static void windowFrames(Graphics2D gr, int houseX, int houseY, int houseX2, int houseY2, Color darkPartOfTheHouse) {
         gr.setColor(darkPartOfTheHouse);
         gr.setStroke(new BasicStroke(4));
-        gr.drawPolygon(new int[]{smallPartOfTheHouseX1 + 24, middleOfASmallPartOfTheHouse - 20, middleOfASmallPartOfTheHouse - 20, smallPartOfTheHouseX1 + 24}, new int[]{smallPartOfTheHouseY1 - 1, smallPartOfTheHouseY1 - 1, smallPartOfTheHouseY2 - 40, smallPartOfTheHouseY2 - 40}, 4);
-        gr.drawLine(smallPartOfTheHouseX2 - 24, smallPartOfTheHouseY1 - 1, smallPartOfTheHouseX2 - 24, smallPartOfTheHouseY2 - 40);
-        gr.drawLine(smallPartOfTheHouseX2 - 24, smallPartOfTheHouseY2 - 40, smallPartOfTheHouseX2 - 220, smallPartOfTheHouseY2 - 40);
+        int i = (houseX2 - houseX) / 4 + houseX - 40;
+        gr.drawPolygon(new int[]{houseX + 24, i, i, houseX + 24}, new int[]{houseY - 1, houseY - 1, houseY + 360, houseY + 360}, 4);
+        gr.drawLine(houseX + 356, houseY - 1, houseX + 356, houseY + 360);
+        gr.drawLine(houseX + 356, houseY + 360, houseX + 160, houseY + 360);
 
-        gr.drawPolygon(new int[]{bigPartOgTheHouseX1 + 20, middleOfABigPartOfTheHouse, bigPartOgTheHouseX2 - 20}, new int[]{bigPartOgTheHouseY1, bigPartOgTheHouseY1 / 2 - 97, bigPartOgTheHouseY1}, 3);
-        gr.drawPolygon(new int[]{bigPartOgTheHouseX1 + 20, middleOfABigPartOfTheHouse - 30, middleOfABigPartOfTheHouse - 30, bigPartOgTheHouseX1 + 20}, new int[]{bigPartOgTheHouseY1, bigPartOgTheHouseY1, bigPartOgTheHouseY2 - 50, bigPartOgTheHouseY2 - 50}, 4);
-        gr.drawPolygon(new int[]{middleOfABigPartOfTheHouse - 30, bigPartOgTheHouseX2 - 20, bigPartOgTheHouseX2 - 20, middleOfABigPartOfTheHouse - 30}, new int[]{bigPartOgTheHouseY1, bigPartOgTheHouseY1, bigPartOgTheHouseY2 - 50, bigPartOgTheHouseY2 - 50}, 4);
+        int i1 = (houseX2 - houseX) * 3 / 4 + houseX ;
+        gr.drawPolygon(new int[]{houseX + 420, i1 - 20, houseX2 - 20}, new int[]{houseY - 50, houseY - 270, houseY - 50}, 3);
+        gr.drawPolygon(new int[]{houseX + 420, i1 - 60, i1 - 60, houseX + 420}, new int[]{houseY - 50, houseY - 50, houseY2 - 50, houseY2 - 50}, 4);
+        gr.drawPolygon(new int[]{i1 - 60, houseX2 - 20, houseX2 - 20, i1 - 60}, new int[]{houseY - 50, houseY - 50, houseY2 - 50, houseY2 - 50}, 4);
 
 
     }
 
 
-    public Home(int smallPartOfTheHouseX1, int smallPartOfTheHouseX2, int smallPartOfTheHouseY1, int smallPartOfTheHouseY2, int bigPartOgTheHouseX1, int bigPartOgTheHouseX2, int bigPartOgTheHouseY1, int bigPartOgTheHouseY2, Color roof1, Color roof2, Color darkPartOfTheHouse, Color brightWall, Color innerLight) {
-        this.smallPartOfTheHouseX1 = smallPartOfTheHouseX1;
-        this.smallPartOfTheHouseX2 = smallPartOfTheHouseX2;
-        this.smallPartOfTheHouseY1 = smallPartOfTheHouseY1;
-        this.smallPartOfTheHouseY2 = smallPartOfTheHouseY2;
-        this.bigPartOgTheHouseX1 = bigPartOgTheHouseX1;
-        this.bigPartOgTheHouseX2 = bigPartOgTheHouseX2;
-        this.bigPartOgTheHouseY1 = bigPartOgTheHouseY1;
-        this.bigPartOgTheHouseY2 = bigPartOgTheHouseY2;
+    public Home(int houseX, int houseY, int houseX2, int houseY2, Color roof1, Color roof2, Color darkPartOfTheHouse, Color brightWall, Color innerLight) {
+        this.houseX = houseX;
+        this.houseY = houseY;
+        this.houseX2 = houseX2;
+        this.houseY2 = houseY2;
         this.roof1 = roof1;
         this.roof2 = roof2;
         this.darkPartOfTheHouse = darkPartOfTheHouse;
         this.brightWall = brightWall;
         this.innerLight = innerLight;
     }
-
 }
