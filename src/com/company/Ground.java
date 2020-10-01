@@ -23,12 +23,19 @@ public class Ground implements Drawable {
     public static void lawn(Graphics2D gr, int width, int height, Color lawn) {
         gr.setColor(lawn);
         gr.setStroke(new BasicStroke(1.0f));
+        int temp = 0;
         for (int n = 0; n <= height; n = n + 5) {
-            for (int i = 0; i <= width; i = i + 4) {
+            for (int i = 0; i <= width; ) {
                 gr.drawLine(i, height + n, i, height - 3 + n);
+                if (temp % 2 == 0) {
+                    i = i + 3;
+                } else {
+                    i = i + 4;
+                }
             }
-
+            temp++;
         }
+
     }
 
     public Ground(int x, int y, int width, int height, Color ground, Color lawn) {
