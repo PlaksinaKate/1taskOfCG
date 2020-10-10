@@ -68,17 +68,18 @@ public class ObjectsNearTheHouse implements Drawable {
                 gr.setColor(outlineOfLivingFence);
                 gr.setStroke(new BasicStroke(4));
                 gr.drawRect(i, j, 181, 150);
+
                 if (temp == 0) {
                     //ограда с левой стороны
 
                     gr.setColor(livingFence);
-                    gr.fillPolygon(new int[]{i, i + currentMC[0][0], i + currentMC[0][1], i + currentMC[0][8], i}, new int[]{j, j + currentMC[0][2], j + currentMC[0][2], j, j}, 5);
-                    gr.fillPolygon(new int[]{i + currentMC[0][8], i + currentMC[0][1], i + currentMC[0][1], i + currentMC[0][3], i + currentMC[0][3]}, new int[]{j, j + currentMC[0][2], j + currentMC[0][5], j + currentMC[0][6], j}, 5);
+                    gr.fillPolygon(new int[]{i, i + currentMC[temp][0], i + currentMC[temp][1], i + currentMC[temp][8], i}, new int[]{j, j + currentMC[temp][2], j + currentMC[temp][2], j, j}, 5);
+                    gr.fillPolygon(new int[]{i + currentMC[temp][8], i + currentMC[temp][1], i + currentMC[temp][1], i + currentMC[temp][3], i + currentMC[temp][3]}, new int[]{j, j + currentMC[temp][2], j + currentMC[temp][5], j + currentMC[temp][6], j}, 5);
 
                     gr.setColor(outlineOfLivingFence);
                     gr.setStroke(new BasicStroke(4));
-                    gr.drawPolygon(new int[]{i, i + currentMC[0][0], i + currentMC[0][1], i + currentMC[0][8], i}, new int[]{j, j + currentMC[0][2], j + currentMC[0][2], j, j}, 5);
-                    gr.drawPolygon(new int[]{i + currentMC[0][3], i + currentMC[0][1], i + currentMC[0][1], i + currentMC[0][3], i + currentMC[0][3]}, new int[]{j, j + currentMC[0][2], j + currentMC[0][5], j + currentMC[0][6], j}, 5);
+                    gr.drawPolygon(new int[]{i, i + currentMC[temp][0], i + currentMC[temp][1], i + currentMC[temp][8], i}, new int[]{j, j + currentMC[temp][2], j + currentMC[temp][2], j, j}, 5);
+                    gr.drawPolygon(new int[]{i + currentMC[temp][3], i + currentMC[temp][1], i + currentMC[temp][1], i + currentMC[temp][3], i + currentMC[temp][3]}, new int[]{j, j + currentMC[temp][2], j + currentMC[temp][5], j + currentMC[temp][6], j}, 5);
 
                     i = i + currentMC[0][7];
                 } else {
