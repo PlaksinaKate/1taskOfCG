@@ -63,14 +63,11 @@ public class ObjectsNearTheHouse implements Drawable {
         int currentMC[][] = {mcA, mcB};
         for (int i = houseX - 200; i <= 1500; ) {
             for (int j = 400; j <= 1000; j = j + 100) {
-                //currentMC[temp%2]; (?)
                 gr.setColor(livingFence);
-                //gr.fillRect(i, j, 180, 75);
                 gr.fillRect(i, j, 181, 150);
                 gr.setColor(outlineOfLivingFence);
                 gr.setStroke(new BasicStroke(4));
                 gr.drawRect(i, j, 181, 150);
-                // gr.fillRect(i, j + 75, 180, 75);
                 if (temp == 0) {
                     //ограда с левой стороны
 
