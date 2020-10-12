@@ -6,7 +6,7 @@ public class Sky implements Drawable {
     private int x, y, width, height;
     private Color c1, c2;
     private Sun s = new Sun(5, 5, 120, 120, new Color(247, 252, 98));
-    private Bird bird = new Bird(1500, 500, Color.black);
+    private Bird bird = new Bird(1500, 500, 20, Color.black);
 
     @Override
     public void draw(Graphics2D gr) {
